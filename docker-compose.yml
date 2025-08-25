@@ -9,7 +9,7 @@ services:
       - /docker/mongodb/db:/data/db:rw
 
   grasscutter:
-    image: andruxaster/grasscutter
+    image: andruxaster/docker-some-server
     links:
       - mongodb:mongodb
     ports:
