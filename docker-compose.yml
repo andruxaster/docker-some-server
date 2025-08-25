@@ -1,0 +1,26 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:latest
+    ports:
+      - 27017:27017
+    networks:
+      - no-internet
+    volumes:
+      - /docker/mongodb/db:/data/db:rw
+
+  grasscutter:
+    image: andruxaster/grasscutter
+    links:
+      - mongodb:mongodb
+    ports:
+      - 443:443
+      - "22102:22102/udp"
+    networks:
+      - no-internet
+      - internet
+    command: tail -f /grasscutter/logs/latest.log
+
+networks:
+  internet: {}
+  no-internet:
+    internal: true
