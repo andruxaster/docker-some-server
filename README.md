@@ -5,4 +5,4 @@ cd docker-some-server
 
 docker build -t andruxaster/docker-some-server .
 
-docker compose up
+docker compose up -d
