@@ -5,4 +5,6 @@ cd docker-some-server
 
 docker build -t andruxaster/docker-some-server .
 
+mkdir -p /docker/mongodb/ && chmod 666 -R /docker/mongodb/
+
 docker compose up -d
